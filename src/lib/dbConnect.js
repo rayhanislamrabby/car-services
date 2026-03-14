@@ -3,6 +3,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 
 export const collectionNameObj = {
   ServicesCollection: "test_services",
+  userCollection: "authtest_user"
 };
 
 export default function dbConnect(collectionName) {
