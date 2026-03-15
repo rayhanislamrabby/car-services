@@ -1,20 +1,29 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 import React from "react";
 
 export default function Navbar() {
-
-const navMenu = (
-  <>
-    <li><Link href="/">Home</Link></li>
-    <li><Link href="/about">About</Link></li>
-    <li><Link href="/services">Services</Link></li>
-    <li><Link href="/blog">Blog</Link></li>
-    <li><Link href="/contact">Contact</Link></li>
-  </>
-);
-
+  const navMenu = (
+    <>
+      <li>
+        <Link href="/">Home</Link>
+      </li>
+      <li>
+        <Link href="/about">About</Link>
+      </li>
+      <li>
+        <Link href="/services">Services</Link>
+      </li>
+      <li>
+        <Link href="/blog">Blog</Link>
+      </li>
+      <li>
+        <Link href="/contact">Contact</Link>
+      </li>
+    </>
+  );
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -41,12 +50,7 @@ const navMenu = (
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-         
-            {
-
-              navMenu
-            }
-
+            {navMenu}
           </ul>
         </div>
 
@@ -55,11 +59,15 @@ const navMenu = (
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-         {navMenu}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navMenu}</ul>
       </div>
+
       <div className="navbar-end">
+        <ul>
+          <li>
+            <Link href={"/login"}>Login</Link>
+          </li>
+        </ul>
         <a className="btn">Appointment</a>
       </div>
     </div>

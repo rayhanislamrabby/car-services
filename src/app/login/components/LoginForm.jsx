@@ -1,11 +1,16 @@
 "use client";
-
 import { registerUser } from "@/app/actions/aurh/registerUser";
-import {  signIn } from "next-auth/react"
+
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import React from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 
 export default function LoginForm() {
+  const router = useRouter();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -13,18 +18,30 @@ export default function LoginForm() {
 
     const email = form.email.value;
     const password = form.password.value;
-await signIn("credentials", { email, password })
+    try {
+      const response = await signIn("credentials", {
+        email,
+        password,
+        callbackUrl: "/",
+        redirect: false,
+      });
+      if (response.ok) {
+        router.push("/");
+        form.reset();
+      } else {
+        alert("Authentication Failed");
+      }
+    } catch (error) {
+      console.log(error);
 
-console.log(email, password)
-
+      alert("Authentication Failed");
+    }
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-8 rounded-xl shadow-lg">
-        <h2 className="text-2xl font-bold text-center mb-6">
-          Register Account
-        </h2>
+        <h2 className="text-2xl font-bold text-center mb-6">Login Account</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
@@ -60,7 +77,13 @@ console.log(email, password)
 
         <p className="text-center mt-4 text-sm">
           Already have an account?
-          <span className="text-orange-500 cursor-pointer ml-1">Login</span>
+          <Link
+            href={"/register"}
+            className="text-orange-500 cursor-pointer ml-1"
+          >
+            {" "}
+            Register
+          </Link>
         </p>
       </div>
     </div>
