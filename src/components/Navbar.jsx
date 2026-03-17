@@ -71,8 +71,13 @@ export default function Navbar() {
         <ul>
           {status == "authenticated" ? (
             <>
-       
-       <button onClick={() => signOut()}>log Out</button>
+              <Image
+                src={session.user.image}
+                width={50}
+                height={50}
+                alt="user"
+              />
+              <button onClick={() => signOut()}>log Out</button>
             </>
           ) : (
             <>

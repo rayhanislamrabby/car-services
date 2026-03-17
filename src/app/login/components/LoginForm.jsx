@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import React from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import SocialLogin from "./SocialLogin";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -75,13 +76,15 @@ export default function LoginForm() {
           </button>
         </form>
 
+        <div className="mt-3.5">
+          <SocialLogin></SocialLogin>
+        </div>
         <p className="text-center mt-4 text-sm">
           Already have an account?
           <Link
             href={"/register"}
             className="text-orange-500 cursor-pointer ml-1"
           >
-            {" "}
             Register
           </Link>
         </p>

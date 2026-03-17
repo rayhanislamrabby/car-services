@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 export const registerUser = async (payload) => {
   const userCollection = dbConnect(collectionNameObj.userCollection);
 
-  const {name, email, password } = payload;
+  const { name, email, password } = payload;
 
   console.log(payload);
 
