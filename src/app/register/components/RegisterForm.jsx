@@ -1,6 +1,7 @@
 "use client";
 
 import { registerUser } from "@/app/actions/aurh/registerUser";
+import SocialLogin from "@/app/login/components/SocialLogin";
 import Link from "next/link";
 import React from "react";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
@@ -74,6 +75,10 @@ export default function RegisterForm() {
           >
             Register
           </button>
+
+          <div>
+            <SocialLogin></SocialLogin>
+          </div>
         </form>
 
         <p className="text-center mt-4 text-sm">
