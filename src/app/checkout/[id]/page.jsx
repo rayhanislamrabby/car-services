@@ -1,3 +1,5 @@
+import CheckoutForm from "@/app/components/forms/CheckoutForms";
+
 export default async function CheckoutPage({ params }) {
   const { id } = await params;
 
@@ -9,5 +11,9 @@ export default async function CheckoutPage({ params }) {
 
   console.log("checkout", data);
 
-  return <div>{JSON.stringify(data)}</div>;
+  return (
+    <div>
+      <CheckoutForm service={data}></CheckoutForm>
+    </div>
+  );
 }

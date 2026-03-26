@@ -22,7 +22,7 @@ export default function RegisterForm() {
       password,
     };
 
-    console.log("Data", user);
+
 
     registerUser(user);
   };

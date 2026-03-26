@@ -8,7 +8,7 @@ import React from "react";
 export default function Navbar() {
   const { data: session, status } = useSession();
 
-  console.log(session);
+
 
   const navMenu = (
     <>
