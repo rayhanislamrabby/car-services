@@ -25,7 +25,7 @@ export default function Navbar() {
         <Link href="/blog">Blog</Link>
       </li>
       <li>
-        <Link href="/contact">Contact</Link>
+        <Link href={"/my-bookings"}>M yBookingse</Link>
       </li>
     </>
   );
