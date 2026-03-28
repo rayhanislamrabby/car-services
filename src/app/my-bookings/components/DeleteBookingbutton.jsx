@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { MdDelete } from "react-icons/md";
 
 export default function DeleteBookingbutton({ id }) {
@@ -12,8 +12,7 @@ export default function DeleteBookingbutton({ id }) {
 
     const data = await res.json();
 
-    console.log(data);
-    router.prefetch();
+router.refresh();
   };
 
   return (

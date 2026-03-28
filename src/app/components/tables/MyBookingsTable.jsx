@@ -2,6 +2,7 @@
 
 import DeleteBookingbutton from "@/app/my-bookings/components/DeleteBookingbutton";
 import Image from "next/image";
+import Link from "next/link";
 import { FaRegEdit } from "react-icons/fa";
 
 const MyAllBookings = ({ data }) => {
@@ -51,9 +52,13 @@ const MyAllBookings = ({ data }) => {
                   </td>
 
                   <td className="p-3 text-center">
-                    <button className="p-2 rounded-lg hover:bg-blue-100 text-blue-500 transition">
+                    <Link  href={`/my-bookings/${item._id}`} >
                       <FaRegEdit className="w-5 h-5" />
-                    </button>
+                    </Link>
+
+                    {/* <button className="p-2 rounded-lg hover:bg-blue-100 text-blue-500 transition">
+                     
+                    </button> */}
                   </td>
 
                   <td className="p-3 text-center">

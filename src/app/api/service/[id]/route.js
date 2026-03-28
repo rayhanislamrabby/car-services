@@ -7,8 +7,8 @@ import { revalidatePath } from "next/cache";
 
 export const DELETE = async (req, { params }) => {
   const bookingCollection = dbConnect(collectionNameObj.bookingCollection);
- const { id } = await params;
-const query = { _id: new ObjectId(id) };
+  const { id } = await params;
+  const query = { _id: new ObjectId(id) };
 
   const session = await getServerSession(authOptions);
   const currentBooking = await bookingCollection.findOne(query);
@@ -16,7 +16,7 @@ const query = { _id: new ObjectId(id) };
 
   if (isWonerOk) {
     const deleteresponse = await bookingCollection.deleteOne(query);
-revalidatePath("/my-bookings")
+    revalidatePath("/my-bookings");
     return NextResponse.json(deleteresponse);
   } else {
     return NextResponse.json(
